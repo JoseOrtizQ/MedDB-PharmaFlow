@@ -1,0 +1,27 @@
+-- 3. PRODUCTS TABLE
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_code VARCHAR(100) NOT NULL UNIQUE,
+    product_name VARCHAR(255) NOT NULL,
+    generic_name VARCHAR(255),
+    brand_name VARCHAR(255),
+    category_id INTEGER REFERENCES categories(category_id),
+    dosage_form VARCHAR(100),
+    strength VARCHAR(100),
+    unit_of_measure VARCHAR(50) DEFAULT 'pieces',
+    description TEXT,
+    manufacturer VARCHAR(255),
+    requires_prescription BOOLEAN DEFAULT FALSE,
+    controlled_substance BOOLEAN DEFAULT FALSE,
+    storage_conditions TEXT,
+    minimum_stock_level INTEGER DEFAULT 0 CHECK (minimum_stock_level >= 0),
+    maximum_stock_level INTEGER CHECK (maximum_stock_level IS NULL OR maximum_stock_level >= minimum_stock_level),
+    reorder_point INTEGER DEFAULT 0 CHECK (reorder_point >= 0),
+    unit_cost DECIMAL(10,2) CHECK (unit_cost >= 0),
+    selling_price DECIMAL(10,2) CHECK (selling_price >= 0),
+    markup_percentage DECIMAL(5,2) CHECK (markup_percentage >= 0),
+    tax_rate DECIMAL(5,2) DEFAULT 0.00 CHECK (tax_rate >= 0 AND tax_rate <= 100),
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
