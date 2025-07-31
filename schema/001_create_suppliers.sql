@@ -1,4 +1,4 @@
--- Creates the 'suppliers' table to store vendor information.
+-- 1. SUPPLIERS TABLE
 CREATE TABLE suppliers (
     supplier_id SERIAL PRIMARY KEY,
     supplier_name VARCHAR(255) NOT NULL,
