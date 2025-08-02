@@ -26,3 +26,7 @@ CREATE INDEX idx_sales_number ON sales(sale_number);
 CREATE INDEX idx_sales_date ON sales(sale_date);
 CREATE INDEX idx_sales_customer ON sales(customer_id);
 CREATE INDEX idx_sales_prescription ON sales(prescription_number) WHERE prescription_number IS NOT NULL;
+
+-- Create indexes for sale_items
+CREATE INDEX idx_sale_items_sale_id ON sale_items(sale_id);
+CREATE INDEX idx_sale_items_product_id ON sale_items(product_id);
