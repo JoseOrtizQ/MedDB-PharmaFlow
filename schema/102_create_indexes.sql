@@ -10,3 +10,8 @@ CREATE INDEX idx_inventory_expiration_date ON inventory(expiration_date) WHERE s
 CREATE INDEX idx_inventory_batch_number ON inventory(batch_number);
 CREATE INDEX idx_inventory_status ON inventory(status);
 CREATE INDEX idx_inventory_product_expiration ON inventory(product_id, expiration_date);
+
+-- Create indexes for customers
+CREATE INDEX idx_customers_code ON customers(customer_code);
+CREATE INDEX idx_customers_phone ON customers(phone);
+CREATE INDEX idx_customers_name ON customers(last_name, first_name);
