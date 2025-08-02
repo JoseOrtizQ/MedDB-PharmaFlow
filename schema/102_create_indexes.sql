@@ -20,3 +20,9 @@ CREATE INDEX idx_customers_name ON customers(last_name, first_name);
 CREATE INDEX idx_users_username ON users(username);
 CREATE INDEX idx_users_email ON users(email);
 CREATE INDEX idx_users_active ON users(is_active) WHERE is_active = TRUE;
+
+-- Create indexes for sales
+CREATE INDEX idx_sales_number ON sales(sale_number);
+CREATE INDEX idx_sales_date ON sales(sale_date);
+CREATE INDEX idx_sales_customer ON sales(customer_id);
+CREATE INDEX idx_sales_prescription ON sales(prescription_number) WHERE prescription_number IS NOT NULL;
