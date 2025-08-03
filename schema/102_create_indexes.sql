@@ -35,3 +35,6 @@ CREATE INDEX idx_sale_items_product_id ON sale_items(product_id);
 CREATE INDEX idx_po_number ON purchase_orders(po_number);
 CREATE INDEX idx_po_supplier ON purchase_orders(supplier_id);
 CREATE INDEX idx_po_status ON purchase_orders(status);
+
+-- Create index for purchase_order_items
+CREATE INDEX idx_po_items_po_id ON purchase_order_items(po_id);
