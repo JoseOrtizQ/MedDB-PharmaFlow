@@ -30,3 +30,8 @@ CREATE INDEX idx_sales_prescription ON sales(prescription_number) WHERE prescrip
 -- Create indexes for sale_items
 CREATE INDEX idx_sale_items_sale_id ON sale_items(sale_id);
 CREATE INDEX idx_sale_items_product_id ON sale_items(product_id);
+
+-- Create indexes for purchase_orders
+CREATE INDEX idx_po_number ON purchase_orders(po_number);
+CREATE INDEX idx_po_supplier ON purchase_orders(supplier_id);
+CREATE INDEX idx_po_status ON purchase_orders(status);
