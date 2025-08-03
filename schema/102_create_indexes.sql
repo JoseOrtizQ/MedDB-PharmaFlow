@@ -38,3 +38,9 @@ CREATE INDEX idx_po_status ON purchase_orders(status);
 
 -- Create index for purchase_order_items
 CREATE INDEX idx_po_items_po_id ON purchase_order_items(po_id);
+
+-- Create indexes for expiration_alerts
+CREATE INDEX idx_alerts_expiration_date ON expiration_alerts(expiration_date);
+CREATE INDEX idx_alerts_date ON expiration_alerts(alert_date);
+CREATE INDEX idx_alerts_type ON expiration_alerts(alert_type);
+CREATE INDEX idx_alerts_unacknowledged ON expiration_alerts(is_acknowledged) WHERE is_acknowledged = FALSE;
