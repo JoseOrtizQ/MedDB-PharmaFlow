@@ -44,3 +44,9 @@ CREATE INDEX idx_alerts_expiration_date ON expiration_alerts(expiration_date);
 CREATE INDEX idx_alerts_date ON expiration_alerts(alert_date);
 CREATE INDEX idx_alerts_type ON expiration_alerts(alert_type);
 CREATE INDEX idx_alerts_unacknowledged ON expiration_alerts(is_acknowledged) WHERE is_acknowledged = FALSE;
+
+-- Create indexes for stock_movements
+CREATE INDEX idx_movements_date ON stock_movements(movement_date);
+CREATE INDEX idx_movements_type ON stock_movements(movement_type);
+CREATE INDEX idx_movements_product ON stock_movements(product_id);
+CREATE INDEX idx_movements_inventory ON stock_movements(inventory_id);
