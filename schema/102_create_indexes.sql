@@ -50,3 +50,8 @@ CREATE INDEX idx_movements_date ON stock_movements(movement_date);
 CREATE INDEX idx_movements_type ON stock_movements(movement_type);
 CREATE INDEX idx_movements_product ON stock_movements(product_id);
 CREATE INDEX idx_movements_inventory ON stock_movements(inventory_id);
+
+-- Create indexes for audit_log
+CREATE INDEX idx_audit_table_record ON audit_log(table_name, record_id);
+CREATE INDEX idx_audit_created_at ON audit_log(created_at);
+CREATE INDEX idx_audit_user ON audit_log(changed_by);
