@@ -55,3 +55,8 @@ CREATE INDEX idx_movements_inventory ON stock_movements(inventory_id);
 CREATE INDEX idx_audit_table_record ON audit_log(table_name, record_id);
 CREATE INDEX idx_audit_created_at ON audit_log(created_at);
 CREATE INDEX idx_audit_user ON audit_log(changed_by);
+
+-- ADDITIONAL PERFORMANCE INDEXES
+CREATE INDEX idx_inventory_status_expiration ON inventory(status, expiration_date) WHERE status = 'active';
+CREATE INDEX idx_sales_customer_date ON sales(customer_id, sale_date);
+CREATE INDEX idx_stock_movements_product_date ON stock_movements(product_id, movement_date);
