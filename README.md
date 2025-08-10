@@ -21,10 +21,13 @@ The database schema consists of the following tables:
 - **Categories**: Stores product categories.
 - **Products**: Information about the products sold.
 - **Inventory**: Tracks the inventory levels for each product.
-- **Sales**: Stores information about the sales transactions.
 - **Customers**: Stores customer details.
+- **Users**: Stores information regarding system users.
+- **Sales**: Stores information about the sales transactions.
 - **Sales Items**: Tracks items in each sale.
 - **Purchase Orders**: Manages orders placed with suppliers.
+- **Purchase Order Items**: Tracks items in each purchase order.
+- **Expiration Alerts**: Stores alerts for expiring products.
 - **Stock Movements**: Tracks any movement (sale, purchase, etc.) of inventory.
 - **Audit Log**: Logs changes made to the system for auditing purposes.
 
@@ -35,6 +38,12 @@ The database schema consists of the following tables:
 Indexes are created to improve performance on frequently queried columns such as `product_id`, `category_id`, `expiration_date`, etc.
 
 ## Setup Instructions
+git clone https://github.com/yourusername/MedDB-PharmaFlow.git
+cd MedDB-PharmaFlow
+
+# Connect to PostgreSQL as superuser and run initialization
+psql -U postgres -f init.sql
+# Important: Change the default password in init.sql before running.
 
 ### Prerequisites
 - PostgreSQL version 9.6 or higher.
